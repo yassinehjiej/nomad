@@ -16,7 +16,7 @@ export const swipeUp = (panY: Animated.Value, dispatch: any) => {
 
 export const swipeDown = (panY: Animated.Value, dispatch: any) => {
   Animated.spring(panY, {
-    toValue: height * 0.83,
+    toValue: height,
     speed: 10,
     bounciness: 0,
     useNativeDriver: false,

@@ -11,15 +11,12 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { useQuery } from "react-query";
 
-import { DOWN, UP, width } from "../constants";
+import { width } from "../constants";
 import { drugTypes } from "../data/filters";
 import {
   setDrugStores,
-  swipeAction,
-  swipeActionPharma,
 } from "../redux/actions";
 import { mapScreenStyles } from "../styles/Screens/MapScreenStyles";
-import SwipeableComponent from "../components/Shared/SwippableVertical";
 import DrugListWithFade from "../components/Drugs/DrugList";
 import SearchInput from "../components/Shared/SearchInput";
 import { fetchDrugStores } from "../api/drugStores";

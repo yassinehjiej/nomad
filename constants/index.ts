@@ -9,7 +9,10 @@ export const DRUG_ICON = require("../assets/drug.png");
 export const HELLO_ICON = require("../assets/hello.png");
 export const FORM_ICON = require("../assets/form.png");
 export const CHAT_ICON = require('../assets/chat.png');
+export const USER_ICON = require('../assets/user.png');
+
 export const DAY_ICON = require('../assets/day.png');
+export const MARK_ICON = require('../assets/mark.png');
 export const NIGHT_ICON = require('../assets/night.png');
 export const LOCATE_PIN = require('../assets/locate.png');
 export const DRUG_STORE_PIN = require("../assets/drugStorePin.png");
@@ -20,6 +23,8 @@ export const LOGO = require("../assets/logo.png");
 export const HEALTH_CARE_LOGO = require("../assets/healthcare_icon.png");
 export const MEDICAMENT_LOGO = require("../assets/medicament_icon.png");
 export const CHAT_LOGO = require("../assets/chat_icon.png");
+export const ROBOT_LOGO = require("../assets/robot_icon.png");
+
 export const BACKGROUND_TARGET = require("../assets/backgroundTarget.png");
 export const MAP = "map";
 export const DEFAULT_SHADOW = {

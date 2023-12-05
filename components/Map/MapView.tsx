@@ -106,7 +106,7 @@ const Map: React.FC = ({ setDesiredDrugStore }: any) => {
           position: "absolute",
           zIndex: 1,
           right: width * 0.05,
-          top: height * 0.75,
+          top: height * 0.8,
         }}
         onPress={handleLocationButtonPress}
       >

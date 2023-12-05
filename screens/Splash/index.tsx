@@ -12,8 +12,6 @@ import ImageContainer from "../../components/Shared/ImageContainer";
 
 function Splash({ onAppReady }: SplashScreenProps) {
   const [splashIsReady, setSplashIsReady] = useState(false);
-  const video = React.useRef(null);
-  const [status, setStatus] = React.useState({});
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -50,15 +48,6 @@ function Splash({ onAppReady }: SplashScreenProps) {
 
   return (
     <View style={splashStyles.container}>
-         {/* <Video
-        ref={video}
-        style={{width:width, height:200}}
-        source={require('../../assets/blanc.mp4')}
-        resizeMode={ResizeMode.CONTAIN}
-        isLooping
-        shouldPlay
-        onPlaybackStatusUpdate={status => setStatus(() => status)}
-      /> */}
        <ImageContainer
             imageUrl={LOGO}
             width={width * 0.5}

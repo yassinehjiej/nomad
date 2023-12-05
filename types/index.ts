@@ -27,6 +27,7 @@ export interface SearchInputProps {
   inputStyle: TextStyle;
   iconStyle: ViewStyle;
   subject?: string;
+  icon?: any,
   onChange: Function,
   handleFocus?:
     | ((e: NativeSyntheticEvent<TextInputFocusEventData>) => void)

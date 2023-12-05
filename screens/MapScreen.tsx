@@ -1,18 +1,14 @@
 import React, { useMemo, useState } from "react";
 import {
-  FlatList,
   NativeSyntheticEvent,
   SafeAreaView,
-  Text,
   TextInputChangeEventData,
-  TouchableOpacity,
   View,
-  Platform,
 } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import { useQuery } from "react-query";
 
-import { DOWN, UP, width } from "../constants";
+import { DOWN, MARK_ICON, UP, width } from "../constants";
 import { drugStoreTypes } from "../data/filters";
 import {
   setDrugStores,
@@ -22,11 +18,11 @@ import {
 import { mapScreenStyles } from "../styles/Screens/MapScreenStyles";
 import MapWithFade from "../components/Map/MapView";
 import SwipeableComponent from "../components/Shared/SwippableVertical";
-import PharmaListWithFade from "../components/Map/PharmaList";
 import SearchInput from "../components/Shared/SearchInput";
 import { fetchDrugStores } from "../api/drugStores";
 import PharmaDetails from "../components/Map/PharmaDetails";
 import FadeInView from "../components/Shared/FadeInView";
+import ChatScreen from "./ChatScreen";
 
 export default function MapScreen() {
   const currentLocation = useSelector(
@@ -69,36 +65,6 @@ export default function MapScreen() {
     dispatch(setDrugStores(data));
   }
 
-  const renderItem = ({ item }: { item: { name: string; icon: any } }) => (
-    <TouchableOpacity
-      style={{
-        marginRight: 15,
-        backgroundColor: selectedFilter === item.name ? "#00C3A5" : "white",
-        minWidth: width * 0.2,
-        justifyContent: "space-around",
-        alignItems: "center",
-        flexDirection: "row",
-        paddingHorizontal: 10,
-        paddingVertical: 5,
-        borderRadius: 20,
-        borderColor: selectedFilter === item.name ? "#00C3A5" : "black",
-        borderWidth: 0.3,
-      }}
-      onPress={() => setSelectedFilter(item.name)}
-    >
-      <View>{item.icon}</View>
-      <Text
-        style={{
-          fontFamily: "montserrat_bold",
-          color: selectedFilter === item.name ? "white" : "#00C3A5",
-          fontSize: 14,
-        }}
-      >
-        {item.name}
-      </Text>
-    </TouchableOpacity>
-  );
-
   const handleFocus = () => {
     dispatch(swipeActionPharma(DOWN));
     dispatch(swipeAction(UP));
@@ -109,34 +75,41 @@ export default function MapScreen() {
       <MapWithFade setDesiredDrugStore={setDesiredDrugStore} />
       <SwipeableComponent
         children={
-          <PharmaListWithFade setDesiredDrugStore={setDesiredDrugStore} />
+          <ChatScreen/>
         }
       />
-      {desiredDrugStore && <PharmaDetails pharma={desiredDrugStore} />}
-      <View style={mapScreenStyles.searchPart}>
+     {showFilters && <View style={mapScreenStyles.searchPart}>
         <SafeAreaView>
           <SearchInput
             containerStyle={{ ...mapScreenStyles.searchBarContainer }}
             inputStyle={{
               ...mapScreenStyles.seachBarTextInput,
-              width: inputWidth,
+              width: "60%",
             }}
             iconStyle={mapScreenStyles.searchBarIcon}
-            subject={type}
+            subject={"Play"}
+            handleFocus={handleFocus}
+            onChange={handleChange}
+            icon={MARK_ICON}
+          />
+        </SafeAreaView>
+      </View>}
+      {showFilters && <View style={mapScreenStyles.searchPart}>
+        <SafeAreaView>
+          <SearchInput
+            containerStyle={{ ...mapScreenStyles.searchBarContainer }}
+            inputStyle={{
+              ...mapScreenStyles.seachBarTextInput,
+              width: "60%",
+            }}
+            iconStyle={mapScreenStyles.searchBarIcon}
+            subject={"AI Help"}
+            icon={MARK_ICON}
             handleFocus={handleFocus}
             onChange={handleChange}
           />
-          {showFilters && (
-            <FlatList
-              data={drugStoreTypes}
-              renderItem={renderItem}
-              keyExtractor={(item, index) => index.toString()}
-              horizontal={true}
-              showsHorizontalScrollIndicator={false}
-            />
-          )}
         </SafeAreaView>
-      </View>
+      </View>}
     </FadeInView>
   );
 }

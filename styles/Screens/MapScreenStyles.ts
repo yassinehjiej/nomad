@@ -48,14 +48,13 @@ export const mapScreenStyles = StyleSheet.create({
       },
       seachBarTextInput: {
         color: "#4C4C4D",
-        height: 50,
+        height: 40,
         width: width,
         borderColor: "white",
         borderWidth: 1,
-        borderRadius: 30,
+        borderRadius: 10,
         backgroundColor: "white",
-        fontSize: 18,
-        padding: 10,
+        justifyContent:'center'
       },
       searchBarIcon: {
         position: "absolute",

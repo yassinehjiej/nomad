@@ -8,7 +8,7 @@ import { swipeAction as reset, setPanResponder } from "../../redux/actions";
 import { height } from "../../constants";
 
 const SwippableVertical = ({ children }: SwipableVerticalProps) => {
-  const panY = useRef(new Animated.Value(height * 0.83)).current;
+  const panY = useRef(new Animated.Value(height)).current;
   const [offsetY, setOffsetY] = useState(0);
   const action = useSelector((state: any) => state.root.swipeAction);
   const dispatch = useDispatch();
