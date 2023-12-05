@@ -14,6 +14,7 @@ import {
   setDrugStores,
   swipeAction,
   swipeActionPharma,
+  showFilters as sf
 } from "../redux/actions";
 import { mapScreenStyles } from "../styles/Screens/MapScreenStyles";
 import MapWithFade from "../components/Map/MapView";
@@ -39,9 +40,6 @@ export default function MapScreen() {
   const [searchedText, setSearchedText] = useState("");
   const dispatch = useDispatch();
   const showFilters = useSelector((state: any) => state.root.showFilters);
-  const handleChange = (e: NativeSyntheticEvent<TextInputChangeEventData>) => {
-    setSearchedText(e.nativeEvent.text);
-  };
 
   const apiParams = useMemo(
     () => ({
@@ -66,50 +64,55 @@ export default function MapScreen() {
   }
 
   const handleFocus = () => {
-    dispatch(swipeActionPharma(DOWN));
+    dispatch(sf(false))
+    dispatch(swipeActionPharma(UP));
+  };
+
+  const handleFocusHelp = () => {
     dispatch(swipeAction(UP));
   };
 
   return (
     <FadeInView style={mapScreenStyles.container}>
       <MapWithFade setDesiredDrugStore={setDesiredDrugStore} />
-      <SwipeableComponent
-        children={
-          <ChatScreen/>
-        }
-      />
-     {showFilters && <View style={mapScreenStyles.searchPart}>
-        <SafeAreaView>
-          <SearchInput
-            containerStyle={{ ...mapScreenStyles.searchBarContainer }}
-            inputStyle={{
-              ...mapScreenStyles.seachBarTextInput,
-              width: "60%",
-            }}
-            iconStyle={mapScreenStyles.searchBarIcon}
-            subject={"Play"}
-            handleFocus={handleFocus}
-            onChange={handleChange}
-            icon={MARK_ICON}
-          />
-        </SafeAreaView>
-      </View>}
-      {showFilters && <View style={mapScreenStyles.searchPart}>
-        <SafeAreaView>
-          <SearchInput
-            containerStyle={{ ...mapScreenStyles.searchBarContainer }}
-            inputStyle={{
-              ...mapScreenStyles.seachBarTextInput,
-              width: "60%",
-            }}
-            iconStyle={mapScreenStyles.searchBarIcon}
-            subject={"AI Help"}
-            icon={MARK_ICON}
-            handleFocus={handleFocus}
-            onChange={handleChange}
-          />
-        </SafeAreaView>
-      </View>}
+      <SwipeableComponent children={<ChatScreen />} />
+      <PharmaDetails />
+      <View style={{ flexDirection: "row", justifyContent: "space-around" }}>
+        {showFilters && (
+          <View style={mapScreenStyles.searchPart}>
+            <SafeAreaView>
+              <SearchInput
+                containerStyle={{ ...mapScreenStyles.searchBarContainer }}
+                inputStyle={{
+                  ...mapScreenStyles.seachBarTextInput,
+                  width: "60%",
+                }}
+                iconStyle={mapScreenStyles.searchBarIcon}
+                subject={"Search"}
+                handleFocus={handleFocus}
+                
+              />
+            </SafeAreaView>
+          </View>
+        )}
+        {showFilters && (
+          <View style={mapScreenStyles.searchPart}>
+            <SafeAreaView>
+              <SearchInput
+                containerStyle={{ ...mapScreenStyles.searchBarContainer }}
+                inputStyle={{
+                  ...mapScreenStyles.seachBarTextInput,
+                  width: "60%",
+                }}
+                iconStyle={mapScreenStyles.searchBarIcon}
+                subject={"AI Help"}
+             
+                handleFocus={handleFocusHelp}
+              />
+            </SafeAreaView>
+          </View>
+        )}
+      </View>
     </FadeInView>
   );
 }

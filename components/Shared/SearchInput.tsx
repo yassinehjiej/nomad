@@ -11,20 +11,19 @@ const SearchInput = (props: SearchInputProps) => {
     iconStyle,
     subject,
     handleFocus,
-    onChange,
-    icon
+    icon = ''
   } = props;
 
   return (
-    <View style={[containerStyle]}>
-      <TouchableOpacity   style={{...inputStyle, flexDirection:'row', display:'flex', alignItems:'center', alignContent:'center', justifyContent:'center'}} onPress={handleFocus as any}>
+    <TouchableOpacity style={[containerStyle]} onPress={handleFocus as any}>
+      <TouchableOpacity   style={{...inputStyle, flexDirection:'row', display:'flex', alignItems:'center', alignContent:'center', justifyContent:'center'}} >
         <Text style={{fontWeight:'bold'}}>{subject}</Text>
-        <Image
+       {icon &&  <Image
             source={icon}
             style={{width:30, height:30, marginLeft:10}}
-          />
+          />}
       </TouchableOpacity>
-    </View>
+    </TouchableOpacity>
   );
 };
 

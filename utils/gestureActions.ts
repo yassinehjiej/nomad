@@ -49,7 +49,7 @@ export const swipeAction = (
 
 export const swipeUpPharma = (panY: Animated.Value) => {
   Animated.spring(panY, {
-    toValue: height*0.63,
+    toValue: 0,
     useNativeDriver: false,
     bounciness: 0,
     speed: 10,

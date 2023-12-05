@@ -1,9 +1,10 @@
 import { StyleSheet, Platform } from 'react-native';
-import { width } from '../../constants';
+import { height, width } from '../../constants';
 
 export const mapScreenStyles = StyleSheet.create({
     container: {
         flex: 1,
+        height:height
       },
       searchPart: {
         display: "flex",
@@ -22,14 +23,15 @@ export const mapScreenStyles = StyleSheet.create({
       },
       searchBarContainer: {
         display: "flex",
-        width: "auto",
+        width: 100,
+   
         minWidth: "auto",
         justifyContent: "space-around",
         flexDirection: "row",
         alignItems: "center",
         alignContent: "center",
         marginVertical: 20,
-        borderRadius:99,
+        borderRadius:10,
         backgroundColor: 'transparent',
         ...Platform.select({
           ios: {

@@ -18,7 +18,7 @@ export const pharmaDetailsStyles = StyleSheet.create({
   container: {
     alignItems: "center",
     backgroundColor: "white",
-    height: height*0.4,
+    height: height,
     width: width,
     position: "absolute",
     ...DEFAULT_SHADOW
