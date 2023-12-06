@@ -4,40 +4,35 @@ import {
   Image,
   TouchableOpacity,
   View,
-  Platform,
-  Text,
   LayoutAnimation,
 } from "react-native";
 import withFadeInView from "../Shared/WithFadeInView";
 import { mapStyles } from "../../styles/Map";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { DRUG_STORE_PIN, LOCATE_PIN, height, width } from "../../constants";
-import { useDispatch, useSelector } from "react-redux";
-import { setDesiredDrugStore } from "../../redux/actions";
-import { DrugStoreDataStructure } from "../../types";
+import { useSelector } from "react-redux";
 
-const Map: React.FC = ({ setDesiredDrugStore }: any) => {
+const Map: React.FC = ({ setDesiredDrugStore, desiredDrugStore }: any) => {
   const data = useSelector((state: any) => state.root.drugStores);
-  const dispatch = useDispatch();
   const mapRef = React.useRef<MapView | null>(null);
   const currentLocation = useSelector(
     (state: any) => state.root.currentLocation
   );
 
-  const desiredLocation = useSelector(
-    (state: any) => state.root.desiredLocation
-  );
+  if (!desiredDrugStore) {desiredDrugStore = currentLocation}
+
 
   useEffect(() => {
     if (mapRef.current) {
+      console.log(desiredDrugStore)
       mapRef.current.animateToRegion({
-        latitude: desiredLocation.lat,
-        longitude: desiredLocation.lng,
-        latitudeDelta: 0.0005,
+        latitude: desiredDrugStore.lat,
+        longitude: desiredDrugStore.lng,
+        latitudeDelta: 0.005,
         longitudeDelta: 0.005,
       });
     }
-  }, [desiredLocation]);
+  }, [desiredDrugStore]);
 
   const memoizedMarkers = useMemo(
     () =>
@@ -45,15 +40,15 @@ const Map: React.FC = ({ setDesiredDrugStore }: any) => {
         <Marker
           key={index.toString()}
           coordinate={{
-            latitude: item.lat,
-            longitude: item.lng,
+            latitude: item?.lat,
+            longitude: item?.lng,
           }}
           title={item?.title}
           onPress={() => {
             LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
 
             setDesiredDrugStore(item);
-            handleDesiredButtonPress(item.lat, item.lng);
+            handleDesiredButtonPress(item?.lat, item?.lng);
           }}
           style={{
             backgroundColor: "transparent",
@@ -82,7 +77,7 @@ const Map: React.FC = ({ setDesiredDrugStore }: any) => {
       mapRef.current.animateToRegion({
         latitude: currentLocation.lat,
         longitude: currentLocation.lng,
-        latitudeDelta: 0.0005,
+        latitudeDelta: 0.005,
         longitudeDelta: 0.005,
       });
     }
@@ -93,7 +88,7 @@ const Map: React.FC = ({ setDesiredDrugStore }: any) => {
       mapRef.current.animateToRegion({
         latitude: lat,
         longitude: lng,
-        latitudeDelta: 0.0005,
+        latitudeDelta: 0.005,
         longitudeDelta: 0.005,
       });
     }
@@ -124,9 +119,9 @@ const Map: React.FC = ({ setDesiredDrugStore }: any) => {
         style={mapStyles.map}
         ref={mapRef}
         region={{
-          latitude: desiredLocation.lat,
-          longitude: desiredLocation.lng,
-          latitudeDelta: 0.0005,
+          latitude: desiredDrugStore.lat,
+          longitude: desiredDrugStore.lng,
+          latitudeDelta: 0.005,
           longitudeDelta: 0.005,
         }}
       >

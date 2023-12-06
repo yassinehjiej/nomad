@@ -1,15 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
 import {
   Animated,
-  Linking,
   PanResponder,
-  ScrollView,
   StyleSheet,
   Text,
   TouchableOpacity,
   View,
+  ActivityIndicator,
 } from "react-native";
-import { PharmaDetailsProps } from "../../types";
 import { pharmaDetailsStyles } from "../../styles/SwippableVertical";
 import {
   swipeActionPharma,
@@ -17,18 +15,23 @@ import {
   swipeUpPharma,
 } from "../../utils/gestureActions";
 import { useDispatch, useSelector } from "react-redux";
-import { setPanResponder, showFilters } from "../../redux/actions";
-import { height, width, DEFAULT_SHADOW } from "../../constants";
-import { showLocation } from "react-native-map-link";
-import { Button } from "react-native-elements";
+import {
+  setDesiredDrugStore,
+  setDrugStores,
+  setPanResponder,
+  showFilters,
+} from "../../redux/actions";
+import { height, width } from "../../constants";
+import { data } from "../../data/pharmacies";
 interface ChatStage {
   message: string;
   responses: string[];
 }
-const PharmaDetails = () => {
+const PharmaDetails = ({ setDesiredDrugStore }: any) => {
   const panY = useRef(new Animated.Value(height)).current;
   const [offsetY, setOffsetY] = useState(0);
   const [currentStage, setCurrentStage] = useState(0);
+  const [selectedWords, setSelectedWord] = useState<string[]>([]);
   const action = useSelector((state: any) => state.root.swipeActionPharma);
   const dispatch = useDispatch();
   const panResponderEnabled = useSelector(
@@ -46,24 +49,62 @@ const PharmaDetails = () => {
         swipeUpPharma(panY);
         dispatch(setPanResponder(false));
       } else if (offsetY > 0) {
-        dispatch(showFilters(true))
+        dispatch(showFilters(true));
         swipeDownPharma(panY);
       }
     },
   });
 
+  const reset = () => {
+    setCurrentStage(0);
+    setSelectedWord([]);
+  };
+
   useEffect(() => {
+    reset();
     swipeActionPharma(action, panY);
   }, [action]);
 
-  const handleResponse = (responseIndex: number) => {
-    setCurrentStage(currentStage + 1);
+  useEffect(() => {
+    if (currentStage === 3) {
+      setTimeout(() => {
+        dispatch(showFilters(true));
+        dispatch(setDrugStores(data));
+        swipeDownPharma(panY);
+        setDesiredDrugStore(data[0]);
+      }, 1000);
+    }
+  }, [currentStage]);
+
+  const handleResponse = (response: string) => {
+    if (selectedWords.includes(response)) {
+      setSelectedWord(selectedWords.filter((word) => word !== response));
+    } else {
+      setSelectedWord([...selectedWords, response]);
+    }
   };
 
   const conversation: ChatStage[] = [
     {
-      message: "The question ?",
-      responses: ["Culture",
+      message: "What would you like to do?",
+      responses: [
+        "Take a coffee",
+        "Eat lunch",
+        "Enjoy a nice dinner",
+        "Have a fun time",
+        "Visit Places !",
+      ],
+    },
+
+    {
+      message: "Select a price range",
+      responses: ["$", "$$", "$$$"],
+    },
+    {
+      message:
+        "Tell us more : (choose amongst the keywords that match your mood and interests)",
+      responses: [
+        "Culture",
         "Nature",
         "Cuisine",
         "Adventure",
@@ -76,22 +117,9 @@ const PharmaDetails = () => {
         "Romantic",
         "Luxury",
         "Budget-friendly",
-        "Festivals"],
+        "Festivals",
+      ],
     },
-
-    {
-      message: "The question 2 ?",
-      responses: ["$", "$$", "$$$"],
-    },
-    {
-      message: "The question 3 ?",
-      responses: ["choice 1", "choice 2"],
-    },
-    {
-      message: "The question 4",
-      responses: ["Choice 1", "Choice 2"],
-    },
-    // ... more stages
   ];
 
   return (
@@ -102,23 +130,72 @@ const PharmaDetails = () => {
           transform: [{ translateY: panY }],
           backgroundColor: "white",
           borderRadius: 20,
+          justifyContent: "center",
         },
       ]}
       {...panResponder.panHandlers}
     >
-
-        <View style={styles.container}>
-      {currentStage < 3 &&  <Text>{conversation[currentStage].message}</Text>}
-        <View style={styles.responseContainer}>
-          {currentStage < 3 &&conversation[currentStage].responses.map((response, index) => (
-            <TouchableOpacity
-              key={index}
-              style={styles.responseButton}
-              onPress={() => handleResponse(index)}
+      <View style={styles.container}>
+        {currentStage === 3 ? (
+          <View style={styles.loadingContainer}>
+            <ActivityIndicator size="large" color="#0000ff" />
+            <Text style={styles.loadingText}>
+              We are looking for the best place for you
+            </Text>
+          </View>
+        ) : (
+          <TouchableOpacity
+            style={{
+              position: "absolute",
+              zIndex: 1000,
+              right: width * 0.08,
+              top: height * 0.8,
+              backgroundColor: "black",
+              borderRadius: 10,
+              width: 100,
+              height: 30,
+              justifyContent: "center",
+            }}
+            onPress={() => setCurrentStage(currentStage + 1)}
+          >
+            <Text
+              style={{
+                fontFamily: "montserrat_bold",
+                color: "white",
+                alignSelf: "center",
+              }}
             >
-              <Text style={styles.responseButtonText}>{response}</Text>
-            </TouchableOpacity>
-          ))}
+              Next
+            </Text>
+          </TouchableOpacity>
+        )}
+        {currentStage < 3 && (
+          <Text
+            style={{
+              alignSelf: "center",
+              marginBottom: 50,
+              fontFamily: "montserrat_bold",
+            }}
+          >
+            {conversation[currentStage].message}
+          </Text>
+        )}
+        <View style={styles.responseContainer}>
+          {currentStage < 3 &&
+            conversation[currentStage].responses.map((response, index) => (
+              <TouchableOpacity
+                key={index}
+                style={{
+                  ...styles.responseButton,
+                  backgroundColor: selectedWords.includes(response)
+                    ? "#5986AC"
+                    : "white",
+                }}
+                onPress={() => handleResponse(response)}
+              >
+                <Text style={styles.responseButtonText}>{response}</Text>
+              </TouchableOpacity>
+            ))}
         </View>
       </View>
     </Animated.View>
@@ -126,23 +203,34 @@ const PharmaDetails = () => {
 };
 
 const styles = StyleSheet.create({
-  container: {flex:1,
-justifyContent:'center'
-  },
+  container: { flex: 1, justifyContent: "center", width: "100%" },
   responseContainer: {
     flexDirection: "row",
-    flexWrap: "wrap", // Cela permettra aux réponses de passer à la ligne automatiquement
+    flexWrap: "wrap",
+    justifyContent: "center", // Cela permettra aux réponses de passer à la ligne automatiquement
   },
   responseButton: {
-    backgroundColor: "#f0f0f0", // Couleur de fond des boutons de réponse
     paddingVertical: 10,
     paddingHorizontal: 20,
+    borderColor: "gray",
+    borderWidth: 2,
     margin: 5, // Espace entre les réponses
-    borderRadius: 10, // Bordure arrondie pour les boutons de réponse
+    borderRadius: 90, // Bordure arrondie pour les boutons de réponse
   },
   responseButtonText: {
     fontSize: 16, // Taille de la police pour les réponses
   },
+  loadingContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  loadingText: {
+    marginTop: 10,
+    fontSize: 18,
+    color: "black",
+  },
+
   // ... more styles
 });
 

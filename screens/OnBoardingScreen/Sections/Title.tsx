@@ -15,7 +15,7 @@ export default function Title() {
           paddingBottom: 10,
         }}
       >
-        Welcome to Places AI
+        Welcome to Nomad
       </Text>
       <View style={{width:width*0.3, height:1, backgroundColor:"#000000", alignSelf:'center', margin:15}}/>
     </View>

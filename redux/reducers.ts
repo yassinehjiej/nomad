@@ -16,7 +16,8 @@ const initialState: any = {
   swipeAction: "",
   swipeActionPharma: "",
   showFilters: true,
-  drugStores: data,
+  desiredLocation:null,
+  drugStores: [],
   drugStore:null,
   panResponder: true,
 };

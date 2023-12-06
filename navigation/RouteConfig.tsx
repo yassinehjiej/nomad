@@ -1,8 +1,8 @@
 import MapScreen from "../screens/MapScreen";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 import { useDispatch } from "react-redux";
-import { setPanResponder, swipeAction, swipeActionPharma } from "../redux/actions";
-import { DOWN, LOGO, MAP_ICON } from "../constants";
+import { setDrugStores, setPanResponder, swipeAction, swipeActionPharma } from "../redux/actions";
+import { DOWN, LOGO } from "../constants";
 
 export const rootNavigatorRoutes = () => [
   {
@@ -59,6 +59,7 @@ export const rootNavigatorRoutes = () => [
               dispatch(swipeAction(DOWN));
               dispatch(swipeActionPharma(DOWN));
               dispatch(setPanResponder(true));
+              dispatch(setDrugStores([]))
             }}
           ></TouchableOpacity>
         );

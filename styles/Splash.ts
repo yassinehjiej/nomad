@@ -8,6 +8,6 @@ export const splashStyles = StyleSheet.create({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "white",
+    backgroundColor: "#5986AC",
   },
 });
