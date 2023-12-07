@@ -6,9 +6,13 @@ import {
   StyleSheet,
   ScrollView,
   SafeAreaView,
+  TouchableOpacity,
 } from "react-native";
-import { ROBOT_LOGO, USER_ICON, height } from "../constants";
+import { DOWN, ROBOT_LOGO, USER_ICON, height, width } from "../constants";
 import { Image } from "react-native";
+import { data } from "../data/pharmacies";
+import { useDispatch } from "react-redux";
+import { setDrugStores, swipeAction } from "../redux/actions";
 
 // Define the structure of each conversation stage
 interface ChatStage {
@@ -17,57 +21,93 @@ interface ChatStage {
 }
 
 // Define the conversation flow
-const conversation: ChatStage[] = [
-  {
-    message: "Hello! How can I help you today?",
-    responses: ["Ask about the weather", "Get help with a problem"],
-  },
-  {
-    message: "Hello! How can I help you tomorow?",
-    responses: ["Ask about ", "Get help "],
-  },
-  {
-    message: "Hello! How can I help you ghali?",
-    responses: [
-      "Ask about the weather yassine",
-      "Get help with a problem yassine",
-    ],
-  },
-  {
-    message: "Hello! How can I help you x?",
-    responses: ["Ask about the weather", "Get help with a problem ali"],
-  },
-  {
-    message: "Hello! How can I help you y?",
-    responses: ["Ask about the weather", "Get help with a problem"],
-  },
-  {
-    message: "Hello! How can I help you z?",
-    responses: ["Ask about ", "Get help "],
-  },
-  {
-    message: "Hello! How can I help you aaa?",
-    responses: [
-      "Ask about the weather yassine",
-      "Get help with a problem yassine",
-    ],
-  },
-  {
-    message: "Hello! How can I help you bbb?",
-    responses: ["Ask about the weather", "Get help with a problem ali"],
-  },
-  // ... more stages
-];
 
-export default function ChatScreen() {
-  const [currentStage, setCurrentStage] = useState(0);
+export default function ChatScreen({ setDesiredDrugStore }: any) {
   const [selectedResponses, setSelectedResponses] = useState<string[]>([
-    conversation[0].message,
+    "Hello! How can I help you today?",
   ]);
+  console.log(selectedResponses[9]);
+  const conversation: ChatStage[] = [
+    {
+      message: "Hello! How can I help you today?",
+      responses: ["Find a restaurant"],
+    },
+    {
+      message: "What would you like to do?",
+      responses: [
+        "Take a coffee",
+        "Eat lunch",
+        "Enjoy a nice dinner",
+        "Have a fun time",
+        "Visit Places !",
+      ],
+    },
+    {
+      message: "Select a price range",
+      responses: ["$", "$$", "$$$"],
+    },
+    {
+      message:
+        "Tell us more : (choose amongst the keywords that match your mood and interests)",
+      responses: [
+        "Culture",
+        "Nature",
+        "Cuisine",
+        "Adventure",
+        "Relaxation",
+        "History",
+        "Shopping",
+        "Art",
+        "Nightlife",
+        "Family-friendly",
+        "Romantic",
+        "Luxury",
+        "Budget-friendly",
+        "Festivals",
+      ],
+    },
+    {
+      message: "I suggest to you theese restaurants",
+      responses: [
+        "Ashokai restaurant",
+        "La cascade restaurant",
+        "Rick's Coffee",
+      ],
+    },
+    {
+      message: "Here is the details of the restaurant you choose",
+      responses: [
+        `🍽️ ${
+          selectedResponses[9]
+            ? data.find((d) => d.title === selectedResponses[9])?.title
+            : ""
+        }`,
+        `📍 ${
+          selectedResponses[9]
+            ? data.find((d) => d.title === selectedResponses[9])?.address
+            : ""
+        }`,
+
+        `📞 ${
+          selectedResponses[9]
+            ? data.find((d) => d.title === selectedResponses[9])?.phone
+            : ""
+        }`,
+        `🛣️ ${
+          selectedResponses[9]
+            ? data
+                .find((d) => d.title === selectedResponses[9])
+                ?.distance?.toFixed(2)
+            : ""
+        } m`,
+      ],
+    },
+  ];
+  const [currentStage, setCurrentStage] = useState(0);
 
   // Reference to the ScrollView
   const scrollViewRef = useRef<ScrollView>(null);
-
+  const dispatch = useDispatch();
   const scrollToBottom = () => {
     scrollViewRef.current?.scrollToEnd({ animated: true });
   };
@@ -87,6 +127,11 @@ export default function ChatScreen() {
     setCurrentStage(currentStage + 1);
   };
 
+  const reset = () => {
+    setSelectedResponses(["Hello! How can I help you today?"]);
+    setCurrentStage(0);
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView
@@ -99,7 +144,7 @@ export default function ChatScreen() {
             currentStage < 7 && (
               <>
                 {index % 2 === 0 && (
-                  <View style={{ ...styles.robot, backgroundColor: "white" }}>
+                  <View style={{ ...styles.robot, backgroundColor: "white" }} key={response}>
                     <Image source={ROBOT_LOGO} style={styles.icon} />
                     <View style={styles.robot}>
                       <Text style={styles.text}>{response}</Text>
@@ -107,8 +152,17 @@ export default function ChatScreen() {
                   </View>
                 )}
                 {index % 2 !== 0 && (
-                  <View key={index} style={{...styles.userContainer, backgroundColor: "white" }}>
-                    <Image source={USER_ICON} style={{...styles.icon, alignSelf:'flex-end'}} />
+                  <View
+                    key={response}
+                    style={{
+                      ...styles.userContainer,
+                      backgroundColor: "white",
+                    }}
+                  >
+                    <Image
+                      source={USER_ICON}
+                      style={{ ...styles.icon, alignSelf: "flex-end" }}
+                    />
                     <View style={styles.user}>
                       <Text style={styles.text}>{response}</Text>
                     </View>
@@ -119,16 +173,133 @@ export default function ChatScreen() {
           );
         })}
 
-        {currentStage < 7 &&
+        {currentStage < 5 &&
           conversation[currentStage].responses.map((response, index) => (
-            <Button
-              key={index}
-              title={response}
+            <TouchableOpacity
+              key={response}
               onPress={() => {
                 handleResponse(index);
               }}
-            />
+              style={{
+                alignSelf: "center",
+                alignContent: "center",
+                borderColor: "gray",
+                borderWidth: 2,
+                borderRadius: 5,
+                backgroundColor: "gray",
+                padding: 5,
+                marginBottom: 10,
+              }}
+            >
+              <Text
+                style={{
+                  textAlign: "center",
+                  fontFamily: "montserrat_bold",
+                  fontSize: 14,
+                  color: "white",
+                }}
+              >
+                {response}
+              </Text>
+            </TouchableOpacity>
           ))}
+        {currentStage === 5 && (
+          <View
+            style={{
+              width: width * 0.8,
+              alignSelf: "center",
+              backgroundColor: "white",
+              justifyContent: "center",
+              borderRadius: 10,
+            }}
+          >
+            {conversation[currentStage].responses.map((response, index) => (
+              <View
+                key={response}
+                style={{
+                  alignSelf: "flex-start",
+                  alignContent: "center",
+                  borderColor: "gray",
+                  borderWidth: 2,
+                  borderRadius: 5,
+                  backgroundColor: "white",
+                  padding: 5,
+                  marginBottom: 10,
+                }}
+              >
+                <Text
+                  style={{
+                    textAlign: "center",
+                    fontFamily: "montserrat_bold",
+                    fontSize: 14,
+                    color: "black",
+                  }}
+                >
+                  {response}
+                </Text>
+              </View>
+            ))}
+            <TouchableOpacity
+              style={{
+                padding: 5,
+                backgroundColor: "white",
+                borderColor: "black",
+                borderRadius: 10,
+                borderWidth: 2,
+                margin: 10,
+              }}
+              onPress={() => {
+                setDesiredDrugStore(
+                  selectedResponses[9]
+                    ? data.find((d) => d.title === selectedResponses[9])
+                    : {}
+                );
+                dispatch(swipeAction(DOWN));
+                if (selectedResponses[9])
+                  dispatch(
+                    setDrugStores([
+                      data.find((d) => d.title === selectedResponses[9]),
+                    ] as any)
+                  );
+              }}
+            >
+              <Text
+                style={{
+                  textAlign: "center",
+                  fontFamily: "montserrat_bold",
+                  fontSize: 14,
+                  color: "black",
+                }}
+              >
+                Go to Map 📍
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={{
+                padding: 5,
+                backgroundColor: "white",
+                borderColor: "black",
+                borderRadius: 10,
+                borderWidth: 2,
+                margin: 10,
+              }}
+              onPress={() => {
+                reset();
+              }}
+            >
+              <Text
+                style={{
+                  textAlign: "center",
+                  fontFamily: "montserrat_bold",
+                  fontSize: 14,
+                  color: "black",
+                }}
+              >
+                Continue ➡️
+              </Text>
+            </TouchableOpacity>
+          </View>
+        )}
       </ScrollView>
     </SafeAreaView>
   );
@@ -147,9 +318,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     width: "100%",
   },
-  response: {
- 
-  },
+  response: {},
   robot: {
     fontSize: 16,
     marginBottom: 5,

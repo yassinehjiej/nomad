@@ -3,7 +3,7 @@ import { DrugStoreDataStructure } from "../types";
 export const data:DrugStoreDataStructure[] = [
   {
     "id": "1168",
-    "title": "Coffee la corniche",
+    "title": "La cascade restaurant",
     "phone": "0522276703",
     "address": "319  bd Moulay Youssef  Bourgogne Casablanca",
     "addressDetails": "Coffee la corniche Casablanca",
@@ -27,7 +27,7 @@ export const data:DrugStoreDataStructure[] = [
   },
   {
     "id": "1503",
-    "title": "Coffee de l'Atlantique",
+    "title": "Ashokai restaurant",
     "phone": "0522267410",
     "address": "512  bd Mohamed Zerktouni  Bourgogne Casablanca",
     "addressDetails": "Coffee de l'Atlantique Casablanca",
@@ -63,7 +63,7 @@ export const data:DrugStoreDataStructure[] = [
   },
   {
     "id": "2219",
-    "title": "Coffee Laayoune",
+    "title": "Rick's Coffee",
     "phone": "0522262104",
     "address": "635, bd de Goulmima  Casablanca",
     "addressDetails": "Coffee Laayoune Casablanca",

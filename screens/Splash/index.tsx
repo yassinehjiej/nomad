@@ -1,18 +1,16 @@
 import React, { useEffect, useState } from "react";
-import FadeInView from "../../components/Shared/FadeInView";
 import { splashStyles } from "../../styles/Splash";
 import { SplashScreenProps } from "../../types";
 import * as Location from "expo-location";
 import { useDispatch } from "react-redux";
 import { setCurrentLocation, setDesiredLocation } from "../../redux/actions";
-import { Video, ResizeMode } from 'expo-av';
-import { LOGO, height, width } from "../../constants";
-import { View } from "react-native";
-import ImageContainer from "../../components/Shared/ImageContainer";
+import { Text, View } from "react-native";
+import { loadFonts } from "../../utils/fontLoader";
 
 function Splash({ onAppReady }: SplashScreenProps) {
   const [splashIsReady, setSplashIsReady] = useState(false);
   const dispatch = useDispatch();
+  const [font, setFont] = useState(false)
 
   useEffect(() => {
     const prepare = async () => {
@@ -46,14 +44,21 @@ function Splash({ onAppReady }: SplashScreenProps) {
     prepare();
   }, [onAppReady]);
 
+  if(!font) {
+    loadFonts().then(()=>{
+      setFont(true)
+    });
+    return;
+  }
   return (
     <View style={splashStyles.container}>
-       <ImageContainer
+       {/* <ImageContainer
             imageUrl={LOGO}
             width={width * 0.5}
             height={height * 0.15}
             resizeMode='center'
-          />
+          /> */}
+          {font && <Text style={{color:'white', fontFamily:'montserrat_bold', fontSize:38}}>Nomad</Text>}
     </View>
   );
 }

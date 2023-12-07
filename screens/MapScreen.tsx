@@ -75,7 +75,7 @@ export default function MapScreen() {
   return (
     <FadeInView style={mapScreenStyles.container}>
       <MapWithFade setDesiredDrugStore={setDesiredDrugStore} desiredDrugStore={desiredDrugStore} />
-      <SwipeableComponent children={<ChatScreen />} />
+      <SwipeableComponent children={<ChatScreen setDesiredDrugStore={setDesiredDrugStore}/>} />
       <PharmaDetails setDesiredDrugStore={setDesiredDrugStore}/>
       <View style={{ flexDirection: "row", justifyContent: "space-around" }}>
         {showFilters && (
