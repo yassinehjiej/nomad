@@ -12,6 +12,7 @@ import {
   FORM_ICON,
   HELLO_ICON,
   LOGO,
+  NOMAD,
   height,
   width,
 } from "../../constants";
@@ -43,11 +44,11 @@ const App: React.FC<any> = ({setRules}) => {
     <SafeAreaView style={styles.container}>
       <FadeInView>
         <View id="logo" style={styles.logo}>
-          <ImageContainer
-            imageUrl={LOGO}
+        <ImageContainer
+            imageUrl={NOMAD}
             width={width * 0.5}
             height={height * 0.15}
-            resizeMode='center'
+            resizeMode='cover'
           />
         </View>
         <StepList steps={steps} handleStepChange={handleStepChange} />

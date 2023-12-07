@@ -2,7 +2,7 @@ import MapScreen from "../screens/MapScreen";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 import { useDispatch } from "react-redux";
 import { setDrugStores, setPanResponder, swipeAction, swipeActionPharma } from "../redux/actions";
-import { DOWN, LOGO } from "../constants";
+import { DOWN, LOGO, NOMAD } from "../constants";
 
 export const rootNavigatorRoutes = () => [
   {
@@ -34,7 +34,7 @@ export const rootNavigatorRoutes = () => [
                 alignItems: "center",
               }}
             >
-              <Image source={LOGO} style={{ width: 65, height: 65, borderRadius:5 }} />
+              <Image source={NOMAD} style={{ width: 65, height: 65, borderRadius:5 }} resizeMode="cover"/>
             </View>
           </View>
         );

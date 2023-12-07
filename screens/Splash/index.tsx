@@ -6,6 +6,8 @@ import { useDispatch } from "react-redux";
 import { setCurrentLocation, setDesiredLocation } from "../../redux/actions";
 import { Text, View } from "react-native";
 import { loadFonts } from "../../utils/fontLoader";
+import ImageContainer from "../../components/Shared/ImageContainer";
+import { NOMAD, height, width } from "../../constants";
 
 function Splash({ onAppReady }: SplashScreenProps) {
   const [splashIsReady, setSplashIsReady] = useState(false);
@@ -52,13 +54,13 @@ function Splash({ onAppReady }: SplashScreenProps) {
   }
   return (
     <View style={splashStyles.container}>
-       {/* <ImageContainer
-            imageUrl={LOGO}
+       <ImageContainer
+            imageUrl={NOMAD}
             width={width * 0.5}
-            height={height * 0.15}
-            resizeMode='center'
-          /> */}
-          {font && <Text style={{color:'white', fontFamily:'montserrat_bold', fontSize:38}}>Nomad</Text>}
+            height={height * 0.4}
+            resizeMode='cover'
+          />
+          {/* {font && <Text style={{color:'white', fontFamily:'montserrat_bold', fontSize:38}}>Nomad</Text>} */}
     </View>
   );
 }
