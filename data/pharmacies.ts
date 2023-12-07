@@ -1,3 +1,4 @@
+import { ALMAKAN, ECOLODGE, KHALTI } from "../constants";
 import { DrugStoreDataStructure } from "../types";
 
 export const data:DrugStoreDataStructure[] = [
@@ -11,43 +12,47 @@ export const data:DrugStoreDataStructure[] = [
     "lat": 33.60386510000000015452314983122050762176513671875,
     "lng": -7.6337992000000003400828063604421913623809814453125,
     "distance": 0.2485870255918841975617539219456375576555728912353515625,
-    "type": "FULL"
+    "type": "FULL",
+    "url":"https://t3.ftcdn.net/jpg/03/24/73/92/360_F_324739203_keeq8udvv0P2h1MLYJ0GLSlTBagoXS48.jpg"
   },
   {
     "id": "1657",
-    "title": "Coffee Loubila",
+    "title": "Kalti's msemmen",
     "phone": "0522260014",
-    "address": "derb Loubila   rue 15 n\u00b016 Bourgogne Casablanca",
-    "addressDetails": "Coffee Loubila Casablanca",
-    "city": "Casablanca",
-    "lat": 33.60266879999999645178831997327506542205810546875,
-    "lng": -7.6364315999999998751945895492099225521087646484375,
+    "address": "Marché municipale Ifrane",
+    "addressDetails": "Kalti's msemmen",
+    "city": "Ifrane",
+    "lat": 33.52669073003088, 
+    "lng": -5.114641252627494,
     "distance": 0.31091208475554255041828355388133786618709564208984375,
-    "type": "FULL"
+    "type": "FULL",
+    "url":KHALTI
   },
   {
     "id": "1503",
-    "title": "Ashokai restaurant",
+    "title": "Almakane Casablanca",
     "phone": "0522267410",
-    "address": "512  bd Mohamed Zerktouni  Bourgogne Casablanca",
-    "addressDetails": "Coffee de l'Atlantique Casablanca",
+    "address": "Place de Belgique",
+    "addressDetails": "Almakane Casablanca",
     "city": "Casablanca",
-    "lat": 33.60321830000000176141838892363011837005615234375,
-    "lng": -7.639372200000000390218701795674860477447509765625,
+    "lat": 33.59998584589245, 
+    "lng": -7.617597274944164,
     "distance": 0.41477118893264897092620913099381141364574432373046875,
-    "type": "FULL"
+    "type": "FULL",
+    "url":ALMAKAN
   },
   {
     "id": "2314",
-    "title": "Coffee Mosqu\u00e9e Hassan II",
+    "title": "Touda Ecolodge Atlas Mountains Morocco",
     "phone": "0522204423",
-    "address": "116, bd Sour Jdid  Casablanca",
-    "addressDetails": "Coffee Mosqu\u00e9e Hassan II Casablanca",
+    "address": "Zawyat Oulmzi, Tabant. Ait Bougmez",
+    "addressDetails": "Touda Ecolodge Atlas Mountains Morocco",
     "city": "Casablanca",
-    "lat": 33.60852589999999651126927346922457218170166015625,
-    "lng": -7.6326999000000004258481567376293241977691650390625,
+    "lat": 31.71235937140579,
+    "lng":  -6.299075777109289,
     "distance": 0.4470318442174032735891842094133608043193817138671875,
-    "type": "FULL"
+    "type": "FULL",
+    "url":ECOLODGE
   },
   {
     "id": "8920",
@@ -59,7 +64,8 @@ export const data:DrugStoreDataStructure[] = [
     "lat": 33.6009480000000024801920517347753047943115234375,
     "lng": -7.6358665999999999485225998796522617340087890625,
     "distance": 0.49579213374686570414695552244666032493114471435546875,
-    "type": "FULL"
+    "type": "FULL",
+    "url":"https://c8.alamy.com/compfr/2cd1nkk/3d-render-of-cafe-restaurant-2cd1nkk.jpg"
   },
   {
     "id": "2219",
@@ -71,7 +77,9 @@ export const data:DrugStoreDataStructure[] = [
     "lat": 33.60068979999999783103703521192073822021484375,
     "lng": -7.63527399999999989432808433775790035724639892578125,
     "distance": 0.526177841568675308536739976261742413043975830078125,
-    "type": "FULL"
+    "type": "FULL",
+        "url":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwTfqbIZzKxDeHC1UDYgEfvq1kTav_3dn1IKcBH-WNOQ&s"
+
   },
   {
     "id": "3008",
@@ -83,7 +91,9 @@ export const data:DrugStoreDataStructure[] = [
     "lat": 33.6023021107161667941909399814903736114501953125,
     "lng": -7.63137786675252272061698022298514842987060546875,
     "distance": 0.531609226332030448958221313660033047199249267578125,
-    "type": "FULL"
+    "type": "FULL",
+        "url":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwTfqbIZzKxDeHC1UDYgEfvq1kTav_3dn1IKcBH-WNOQ&s"
+
   },
   {
     "id": "8881",
@@ -95,7 +105,9 @@ export const data:DrugStoreDataStructure[] = [
     "lat": 33.59998999999999824694896233268082141876220703125,
     "lng": -7.63736000000000014864554032101295888423919677734375,
     "distance": 0.62049310778568678159672344918362796306610107421875,
-    "type": "FULL"
+    "type": "FULL",
+        "url":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwTfqbIZzKxDeHC1UDYgEfvq1kTav_3dn1IKcBH-WNOQ&s"
+
   },
   {
     "id": "3502",
@@ -107,7 +119,9 @@ export const data:DrugStoreDataStructure[] = [
     "lat": 33.6000384999999965884853736497461795806884765625,
     "lng": -7.63771459999999979828544383053667843341827392578125,
     "distance": 0.6240606011428493360426728031598031520843505859375,
-    "type": "FULL"
+    "type": "FULL",
+        "url":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwTfqbIZzKxDeHC1UDYgEfvq1kTav_3dn1IKcBH-WNOQ&s"
+
   },
   {
     "id": "4586",
@@ -119,7 +133,9 @@ export const data:DrugStoreDataStructure[] = [
     "lat": 33.6036483999999973093508742749691009521484375,
     "lng": -7.64251539999999973673538988805375993251800537109375,
     "distance": 0.6567924661003690101068741569179110229015350341796875,
-    "type": "FULL"
+    "type": "FULL",
+        "url":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwTfqbIZzKxDeHC1UDYgEfvq1kTav_3dn1IKcBH-WNOQ&s"
+
   },
   {
     "id": "2671",
@@ -131,7 +147,9 @@ export const data:DrugStoreDataStructure[] = [
     "lat": 33.6007292000000035159246181137859821319580078125,
     "lng": -7.640541699999999991632648743689060211181640625,
     "distance": 0.6839406351379000437162858361261896789073944091796875,
-    "type": "FULL"
+    "type": "FULL",
+        "url":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwTfqbIZzKxDeHC1UDYgEfvq1kTav_3dn1IKcBH-WNOQ&s"
+
   },
   {
     "id": "5597",
@@ -143,7 +161,9 @@ export const data:DrugStoreDataStructure[] = [
     "lat": 33.5992070240823892390835680998861789703369140625,
     "lng": -7.63546073809705116985924178152345120906829833984375,
     "distance": 0.6897413679341302117364875812199898064136505126953125,
-    "type": "FULL"
+    "type": "FULL",
+        "url":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwTfqbIZzKxDeHC1UDYgEfvq1kTav_3dn1IKcBH-WNOQ&s"
+
   },
   {
     "id": "807",
@@ -155,7 +175,9 @@ export const data:DrugStoreDataStructure[] = [
     "lat": 33.60611320000000290519892587326467037200927734375,
     "lng": -7.6282405999999998158500602585263550281524658203125,
     "distance": 0.69932713515711408813757543612155131995677947998046875,
-    "type": "FULL"
+    "type": "FULL",
+        "url":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwTfqbIZzKxDeHC1UDYgEfvq1kTav_3dn1IKcBH-WNOQ&s"
+
   },
   {
     "id": "3145",
@@ -167,7 +189,9 @@ export const data:DrugStoreDataStructure[] = [
     "lat": 33.600200000000000954969436861574649810791015625,
     "lng": -7.629870000000000374029696104116737842559814453125,
     "distance": 0.79435576982599143125440832591266371309757232666015625,
-    "type": "FULL"
+    "type": "FULL",
+        "url":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwTfqbIZzKxDeHC1UDYgEfvq1kTav_3dn1IKcBH-WNOQ&s"
+
   },
   {
     "id": "41",
@@ -179,7 +203,9 @@ export const data:DrugStoreDataStructure[] = [
     "lat": 33.60334876042103502413738169707357883453369140625,
     "lng": -7.62717081875958768932832754217088222503662109375,
     "distance": 0.826259050507706316324174622423015534877777099609375,
-    "type": "FULL"
+    "type": "FULL",
+        "url":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwTfqbIZzKxDeHC1UDYgEfvq1kTav_3dn1IKcBH-WNOQ&s"
+
   },
   {
     "id": "1685",
@@ -191,7 +217,9 @@ export const data:DrugStoreDataStructure[] = [
     "lat": 33.59844389999999947349351714365184307098388671875,
     "lng": -7.63252009999999980749407768598757684230804443359375,
     "distance": 0.8296860591301744580761123870615847408771514892578125,
-    "type": "FULL"
+    "type": "FULL",
+        "url":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwTfqbIZzKxDeHC1UDYgEfvq1kTav_3dn1IKcBH-WNOQ&s"
+
   },
   {
     "id": "4251",
@@ -203,7 +231,9 @@ export const data:DrugStoreDataStructure[] = [
     "lat": 33.5971076000000010708390618674457073211669921875,
     "lng": -7.6353454000000002821479938575066626071929931640625,
     "distance": 0.9234146247146473029943081201054155826568603515625,
-    "type": "FULL"
+    "type": "FULL",
+        "url":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwTfqbIZzKxDeHC1UDYgEfvq1kTav_3dn1IKcBH-WNOQ&s"
+
   },
   {
     "id": "3958",
@@ -215,7 +245,9 @@ export const data:DrugStoreDataStructure[] = [
     "lat": 33.6013470999999981358996592462062835693359375,
     "lng": -7.64479989999999975935907059465534985065460205078125,
     "distance": 0.95233874490407066648600675762281753122806549072265625,
-    "type": "FULL"
+    "type": "FULL",
+        "url":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwTfqbIZzKxDeHC1UDYgEfvq1kTav_3dn1IKcBH-WNOQ&s"
+
   },
   {
     "id": "4278",
@@ -227,7 +259,9 @@ export const data:DrugStoreDataStructure[] = [
     "lat": 33.59989999999999810142981004901230335235595703125,
     "lng": -7.6277699999999999391775418189354240894317626953125,
     "distance": 0.95924642190875797354010501294396817684173583984375,
-    "type": "FULL"
+    "type": "FULL",
+        "url":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwTfqbIZzKxDeHC1UDYgEfvq1kTav_3dn1IKcBH-WNOQ&s"
+
   },
   {
     "id": "1309",
@@ -239,7 +273,9 @@ export const data:DrugStoreDataStructure[] = [
     "lat": 33.60439999999999827196006663143634796142578125,
     "lng": -7.62537999999999982492226990871131420135498046875,
     "distance": 0.966301749067161264150627175695262849330902099609375,
-    "type": "FULL"
+    "type": "FULL",
+        "url":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwTfqbIZzKxDeHC1UDYgEfvq1kTav_3dn1IKcBH-WNOQ&s"
+
   },
   {
     "id": "1725",
@@ -251,7 +287,9 @@ export const data:DrugStoreDataStructure[] = [
     "lat": 33.59930990000000150530468090437352657318115234375,
     "lng": -7.6434537000000002393562681390903890132904052734375,
     "distance": 0.984458288114456347983605155604891479015350341796875,
-    "type": "FULL"
+    "type": "FULL",
+        "url":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwTfqbIZzKxDeHC1UDYgEfvq1kTav_3dn1IKcBH-WNOQ&s"
+
   },
   {
     "id": "1823",
@@ -263,7 +301,9 @@ export const data:DrugStoreDataStructure[] = [
     "lat": 33.5979999999999989768184605054557323455810546875,
     "lng": -7.62950000000000017053025658242404460906982421875,
     "distance": 1.0062245207704505478574219523579813539981842041015625,
-    "type": "FULL"
+    "type": "FULL",
+        "url":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwTfqbIZzKxDeHC1UDYgEfvq1kTav_3dn1IKcBH-WNOQ&s"
+
   },
   {
     "id": "8672",
@@ -275,7 +315,9 @@ export const data:DrugStoreDataStructure[] = [
     "lat": 33.5984049999999996316546457819640636444091796875,
     "lng": -7.6426502999999996745827957056462764739990234375,
     "distance": 1.0074597620740057823951474347268231213092803955078125,
-    "type": "FULL"
+    "type": "FULL",
+        "url":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwTfqbIZzKxDeHC1UDYgEfvq1kTav_3dn1IKcBH-WNOQ&s"
+
   },
   {
     "id": "1610",
@@ -287,7 +329,9 @@ export const data:DrugStoreDataStructure[] = [
     "lat": 33.59679990000000060490492614917457103729248046875,
     "lng": -7.64124889999999989953494150540791451930999755859375,
     "distance": 1.084211596647826514328016855870373547077178955078125,
-    "type": "FULL"
+    "type": "FULL",
+        "url":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwTfqbIZzKxDeHC1UDYgEfvq1kTav_3dn1IKcBH-WNOQ&s"
+
   },
   {
     "id": "8863",
@@ -299,7 +343,9 @@ export const data:DrugStoreDataStructure[] = [
     "lat": 33.596833099999997784834704361855983734130859375,
     "lng": -7.62981700000000007122480383259244263172149658203125,
     "distance": 1.099961028479242042266150747309438884258270263671875,
-    "type": "FULL"
+    "type": "FULL",
+        "url":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwTfqbIZzKxDeHC1UDYgEfvq1kTav_3dn1IKcBH-WNOQ&s"
+
   },
   {
     "id": "3083",
@@ -311,7 +357,9 @@ export const data:DrugStoreDataStructure[] = [
     "lat": 33.60266010000000136415110318921506404876708984375,
     "lng": -7.647283200000000391582943848334252834320068359375,
     "distance": 1.111345861746194874086768322740681469440460205078125,
-    "type": "FULL"
+    "type": "FULL",
+        "url":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwTfqbIZzKxDeHC1UDYgEfvq1kTav_3dn1IKcBH-WNOQ&s"
+
   },
   {
     "id": "2513",
@@ -323,7 +371,9 @@ export const data:DrugStoreDataStructure[] = [
     "lat": 33.595448500000003377863322384655475616455078125,
     "lng": -7.63262339999999994688550941646099090576171875,
     "distance": 1.1442559764350324069681619221228174865245819091796875,
-    "type": "FULL"
+    "type": "FULL",
+        "url":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwTfqbIZzKxDeHC1UDYgEfvq1kTav_3dn1IKcBH-WNOQ&s"
+
   },
   {
     "id": "2942",
@@ -335,7 +385,9 @@ export const data:DrugStoreDataStructure[] = [
     "lat": 33.59712650000000166983227245509624481201171875,
     "lng": -7.64391949999999997800159690086729824542999267578125,
     "distance": 1.191918862507247656168374305707402527332305908203125,
-    "type": "FULL"
+    "type": "FULL",
+        "url":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwTfqbIZzKxDeHC1UDYgEfvq1kTav_3dn1IKcBH-WNOQ&s"
+
   },
   {
     "id": "5664",
@@ -347,7 +399,9 @@ export const data:DrugStoreDataStructure[] = [
     "lat": 33.595701800000000503132469020783901214599609375,
     "lng": -7.64127720000000021371988623286597430706024169921875,
     "distance": 1.1944755448575612444273019718821160495281219482421875,
-    "type": "FULL"
+    "type": "FULL",
+        "url":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwTfqbIZzKxDeHC1UDYgEfvq1kTav_3dn1IKcBH-WNOQ&s"
+
   },
   {
     "id": "4174",
@@ -359,7 +413,9 @@ export const data:DrugStoreDataStructure[] = [
     "lat": 33.6016663999999991574441082775592803955078125,
     "lng": -7.623303899999999799774741404689848423004150390625,
     "distance": 1.22481930247281400880865476210601627826690673828125,
-    "type": "FULL"
+    "type": "FULL",
+        "url":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwTfqbIZzKxDeHC1UDYgEfvq1kTav_3dn1IKcBH-WNOQ&s"
+
   },
   {
     "id": "1167",
@@ -371,7 +427,9 @@ export const data:DrugStoreDataStructure[] = [
     "lat": 33.60162770000000165282472153194248676300048828125,
     "lng": -7.62331629999999993430037648067809641361236572265625,
     "distance": 1.2252081610068488171094713834463618695735931396484375,
-    "type": "FULL"
+    "type": "FULL",
+        "url":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwTfqbIZzKxDeHC1UDYgEfvq1kTav_3dn1IKcBH-WNOQ&s"
+
   },
   {
     "id": "5675",
@@ -383,7 +441,9 @@ export const data:DrugStoreDataStructure[] = [
     "lat": 33.596031199999998761995811946690082550048828125,
     "lng": -7.6278293000000001455873643863014876842498779296875,
     "distance": 1.2742976628287312479415049892850220203399658203125,
-    "type": "FULL"
+    "type": "FULL",
+        "url":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwTfqbIZzKxDeHC1UDYgEfvq1kTav_3dn1IKcBH-WNOQ&s"
+
   },
   {
     "id": "4226",
@@ -395,7 +455,9 @@ export const data:DrugStoreDataStructure[] = [
     "lat": 33.6001126000000027715941541828215122222900390625,
     "lng": -7.6481080999999999647798176738433539867401123046875,
     "distance": 1.287406176623192788355254378984682261943817138671875,
-    "type": "FULL"
+    "type": "FULL",
+        "url":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwTfqbIZzKxDeHC1UDYgEfvq1kTav_3dn1IKcBH-WNOQ&s"
+
   },
   {
     "id": "2852",
@@ -407,7 +469,9 @@ export const data:DrugStoreDataStructure[] = [
     "lat": 33.59468890000000129703039419837296009063720703125,
     "lng": -7.6300410000000002952447175630368292331695556640625,
     "distance": 1.3034283276815354923883205628953874111175537109375,
-    "type": "FULL"
+    "type": "FULL",
+        "url":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwTfqbIZzKxDeHC1UDYgEfvq1kTav_3dn1IKcBH-WNOQ&s"
+
   },
   {
     "id": "2022",
@@ -419,7 +483,9 @@ export const data:DrugStoreDataStructure[] = [
     "lat": 33.5936193077019851216391543857753276824951171875,
     "lng": -7.634773219295457380439984262920916080474853515625,
     "distance": 1.313619380042754247739367201575078070163726806640625,
-    "type": "FULL"
+    "type": "FULL",
+        "url":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwTfqbIZzKxDeHC1UDYgEfvq1kTav_3dn1IKcBH-WNOQ&s"
+
   },
   {
     "id": "3842",
@@ -431,7 +497,9 @@ export const data:DrugStoreDataStructure[] = [
     "lat": 33.59743569999999834863046999089419841766357421875,
     "lng": -7.6462193000000002740534910117276012897491455078125,
     "distance": 1.3139337404065691838894736065412871539592742919921875,
-    "type": "FULL"
+    "type": "FULL",
+        "url":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwTfqbIZzKxDeHC1UDYgEfvq1kTav_3dn1IKcBH-WNOQ&s"
+
   },
   {
     "id": "2482",
@@ -443,7 +511,9 @@ export const data:DrugStoreDataStructure[] = [
     "lat": 33.59643419999999736091922386549413204193115234375,
     "lng": -7.62627949999999987795717970584519207477569580078125,
     "distance": 1.3279474090935272645452869255677796900272369384765625,
-    "type": "FULL"
+    "type": "FULL",
+        "url":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwTfqbIZzKxDeHC1UDYgEfvq1kTav_3dn1IKcBH-WNOQ&s"
+
   },
   {
     "id": "9146",
@@ -455,7 +525,9 @@ export const data:DrugStoreDataStructure[] = [
     "lat": 33.59446630000000055815689847804605960845947265625,
     "lng": -7.64159170000000020905872588627971708774566650390625,
     "distance": 1.33146386343531286655661460827104747295379638671875,
-    "type": "FULL"
+    "type": "FULL",
+        "url":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwTfqbIZzKxDeHC1UDYgEfvq1kTav_3dn1IKcBH-WNOQ&s"
+
   },
   {
     "id": "3432",
@@ -467,7 +539,9 @@ export const data:DrugStoreDataStructure[] = [
     "lat": 33.59818949999999659894456272013485431671142578125,
     "lng": -7.64762759999999985893737175501883029937744140625,
     "distance": 1.361962009640489412731767515651881694793701171875,
-    "type": "FULL"
+    "type": "FULL",
+        "url":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwTfqbIZzKxDeHC1UDYgEfvq1kTav_3dn1IKcBH-WNOQ&s"
+
   },
   {
     "id": "8913",
@@ -479,6 +553,8 @@ export const data:DrugStoreDataStructure[] = [
     "type": "FULL",
     "lat": 33.5941337000000004309185897000133991241455078125,
     "lng": -7.6295479000000003821924110525287687778472900390625,
-    "distance": 1.3784731599923978340171970558003522455692291259765625
+    "distance": 1.3784731599923978340171970558003522455692291259765625,
+        "url":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwTfqbIZzKxDeHC1UDYgEfvq1kTav_3dn1IKcBH-WNOQ&s"
+
   }
 ]

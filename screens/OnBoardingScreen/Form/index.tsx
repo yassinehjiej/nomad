@@ -108,7 +108,7 @@ export default function index({ handleOnboarding }: OnBoardingScreenProps) {
             zIndex: -2,
             width: 112,
             height: 38,
-            backgroundColor: "#5986AC",
+            backgroundColor: "#CC9870",
             justifyContent: "center",
             alignItems: "center",
             borderRadius: 20,

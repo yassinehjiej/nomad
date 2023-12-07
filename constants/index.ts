@@ -13,6 +13,9 @@ export const USER_ICON = require('../assets/user.png');
 
 export const DAY_ICON = require('../assets/day.png');
 export const MARK_ICON = require('../assets/mark.png');
+export const ALMAKAN = require('../assets/almakane.jpeg');
+export const KHALTI = require('../assets/khalti.png');
+export const ECOLODGE = require('../assets/ecolodge.jpeg');
 export const NIGHT_ICON = require('../assets/night.png');
 export const LOCATE_PIN = require('../assets/locate.png');
 export const DRUG_STORE_PIN = require("../assets/drugStorePin.png");

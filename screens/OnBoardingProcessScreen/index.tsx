@@ -56,7 +56,7 @@ const App: React.FC<any> = ({setRules}) => {
             activeOpacity={currentStep !== 1 ? 1 : 0}
             style={{
               ...styles.submitButton,
-              backgroundColor: currentStep === 1 ? "#5986AC" : "#979797",
+              backgroundColor: currentStep === 1 ? "#CC9870" : "#979797",
             }}
             onPress={currentStep === 1 ? ()=>setRules(true) : ()=>{}}
           >

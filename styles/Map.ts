@@ -12,7 +12,7 @@ export const mapStyles = StyleSheet.create({
       },
       headerButtonsLocationWrapper: {
         borderRadius: 90,
-        backgroundColor: "#5986AC",
+        backgroundColor: "#CC9870",
         ...DEFAULT_SHADOW
     
       },

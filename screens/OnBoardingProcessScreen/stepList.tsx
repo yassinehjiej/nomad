@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
     fontFamily: "montserrat_bold",
     fontSize: 12,
     textAlign: "center",
-    color: "#5986AC",
+    color: "#CC9870",
     width: 311,
   },
   dot: {
@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   activeDot: {
-    backgroundColor: "#5986AC",
+    backgroundColor: "#CC9870",
     width: 15,
     height: 15,
     borderRadius: 99,

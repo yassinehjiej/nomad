@@ -20,7 +20,7 @@ export default function Gender({ handleUser }: InputFormOnBoardingProps) {
         <TouchableOpacity
           style={{
             ...styles.gender,
-            backgroundColor: gender === "female" ? "#5986AC" : "transparent",
+            backgroundColor: gender === "female" ? "#CC9870" : "transparent",
           }}
           onPress={() => {
             handleUser("gender", "female");
@@ -39,7 +39,7 @@ export default function Gender({ handleUser }: InputFormOnBoardingProps) {
         <TouchableOpacity
           style={{
             ...styles.gender,
-            backgroundColor: gender === "male" ? "#00C3A5" : "transparent",
+            backgroundColor: gender === "male" ? "#CC9870" : "transparent",
           }}
           onPress={() => {
             handleUser("gender", "male");

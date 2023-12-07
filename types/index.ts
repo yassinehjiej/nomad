@@ -77,6 +77,7 @@ export interface DrugStoreDataStructure {
   lng: number | null;
   distance: number | null;
   type: string | null;
+  url?: string | null;
 }
 
 export interface DrugStoreList {

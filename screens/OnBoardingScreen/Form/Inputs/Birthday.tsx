@@ -67,6 +67,6 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     fontSize: 18,
     fontFamily: "montserrat_bold",
-    color: "#5986AC",
+    color: "#CC9870",
   },
 });

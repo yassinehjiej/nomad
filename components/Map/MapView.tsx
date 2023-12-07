@@ -1,15 +1,29 @@
 import React, { useEffect, useMemo, useState } from "react";
-import MapView, { Callout, Marker, PROVIDER_GOOGLE } from "react-native-maps";
+import MapView, {
+  Callout,
+  MapCallout,
+  Marker,
+  PROVIDER_GOOGLE,
+} from "react-native-maps";
 import {
   Image,
   TouchableOpacity,
   View,
   LayoutAnimation,
+  Text,
 } from "react-native";
 import withFadeInView from "../Shared/WithFadeInView";
 import { mapStyles } from "../../styles/Map";
 import { FontAwesome5 } from "@expo/vector-icons";
-import { DRUG_STORE_PIN, LOCATE_PIN, height, width } from "../../constants";
+import {
+  ALMAKAN,
+  DRUG_STORE_PIN,
+  ECOLODGE,
+  KHALTI,
+  LOCATE_PIN,
+  height,
+  width,
+} from "../../constants";
 import { useSelector } from "react-redux";
 
 const Map: React.FC = ({ setDesiredDrugStore, desiredDrugStore }: any) => {
@@ -19,12 +33,25 @@ const Map: React.FC = ({ setDesiredDrugStore, desiredDrugStore }: any) => {
     (state: any) => state.root.currentLocation
   );
 
-  if (!desiredDrugStore) {desiredDrugStore = currentLocation}
-
+  if (!desiredDrugStore) {
+    desiredDrugStore = currentLocation;
+  }
+  const p = (title: string) => {
+    switch (title) {
+      case "Kalti's msemmen":
+        return KHALTI;
+      case "Almakane Casablanca":
+        return ALMAKAN;
+      case "Touda Ecolodge Atlas Mountains Morocco":
+        return ECOLODGE;
+      default:
+        return KHALTI;
+    }
+  };
 
   useEffect(() => {
     if (mapRef.current) {
-      console.log(desiredDrugStore)
+      console.log(desiredDrugStore);
       mapRef.current.animateToRegion({
         latitude: desiredDrugStore.lat,
         longitude: desiredDrugStore.lng,
@@ -45,7 +72,9 @@ const Map: React.FC = ({ setDesiredDrugStore, desiredDrugStore }: any) => {
           }}
           title={item?.title}
           onPress={() => {
-            LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+            LayoutAnimation.configureNext(
+              LayoutAnimation.Presets.easeInEaseOut
+            );
 
             setDesiredDrugStore(item);
             handleDesiredButtonPress(item?.lat, item?.lng);
@@ -58,6 +87,29 @@ const Map: React.FC = ({ setDesiredDrugStore, desiredDrugStore }: any) => {
             justifyContent: "space-between",
           }}
         >
+          <MapCallout
+            tooltip
+            style={{
+              width: 300,
+              height: 300,
+              borderColor: "black",
+              borderRadius: 10,
+              backgroundColor: "white",
+              borderWidth: 2,
+              justifyContent:'space-around'
+            }}
+          >
+            <Image
+              style={{ width: 300, height: 120 }}
+              source={p(item?.title)}
+            />
+            <Text style={{fontFamily:'montserrat_bold', textDecorationLine:'underline', padding:5, alignSelf:'center', fontSize:20}}>{item?.title}</Text>
+            <Text style={{  padding:10, alignSelf:'center', fontSize:12}}>⏰{"09:00 a.m/ 07:30 p.m"}</Text>
+            <Text style={{  padding:10, alignSelf:'center', fontSize:12}}>📞{item?.phone}</Text>
+            <Text style={{  padding:10, alignSelf:'center', fontSize:12}}>📍{item?.address}</Text>
+
+
+          </MapCallout>
           <View>
             <Image
               source={DRUG_STORE_PIN}

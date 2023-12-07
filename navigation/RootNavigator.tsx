@@ -21,7 +21,7 @@ export default function App() {
         screenOptions={{
           tabBarStyle: {
             height:Constants.height *0.11,
-            backgroundColor: "#5986AC",
+            backgroundColor: "#CC9870",
             ...DEFAULT_SHADOW
           },
           
