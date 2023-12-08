@@ -1,4 +1,4 @@
-import { ALMAKAN, ECOLODGE, KHALTI } from "../constants";
+import { ALMAKAN, ASHOKAI, ECOLODGE, KHALTI } from "../constants";
 import { DrugStoreDataStructure } from "../types";
 
 export const data:DrugStoreDataStructure[] = [
@@ -56,7 +56,7 @@ export const data:DrugStoreDataStructure[] = [
   },
   {
     "id": "8920",
-    "title": "Casablanca",
+    "title": "Ashokai Casablanca",
     "phone": "0522294227",
     "address": "17  rue Regraga -ex Diderot - Casablanca   derb Loubila Quartier bourgogne Casablanca - Maroc   ",
     "addressDetails": "Coffee Casablanca",
@@ -65,7 +65,7 @@ export const data:DrugStoreDataStructure[] = [
     "lng": -7.6358665999999999485225998796522617340087890625,
     "distance": 0.49579213374686570414695552244666032493114471435546875,
     "type": "FULL",
-    "url":"https://c8.alamy.com/compfr/2cd1nkk/3d-render-of-cafe-restaurant-2cd1nkk.jpg"
+    "url":ASHOKAI
   },
   {
     "id": "2219",

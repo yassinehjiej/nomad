@@ -71,7 +71,7 @@ export default function ChatScreen({ setDesiredDrugStore }: any) {
     },
     {
       message: "I suggest to you this place",
-      responses: [selectedResponses.includes('Ifrane') ? "Khalti's msemmen" : selectedResponses.includes('Casablanca') ? "Almakane Casablanca" : "Touda Ecolodge Atlas Mountains Morocco"],
+      responses: [selectedResponses.includes('Ifrane') ? "Khalti's msemmen" : selectedResponses.includes('Casablanca') ? "Ashokai Casablanca" : "Touda Ecolodge Atlas Mountains Morocco"],
     },
     {
       message: "Here is the details of the restaurant you choose",

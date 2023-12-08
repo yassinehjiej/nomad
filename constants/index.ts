@@ -16,6 +16,7 @@ export const MARK_ICON = require('../assets/mark.png');
 export const ALMAKAN = require('../assets/almakane.jpeg');
 export const KHALTI = require('../assets/khalti.jpeg');
 export const ECOLODGE = require('../assets/ecolodge.jpeg');
+export const ASHOKAI = require('../assets/ashokai.jpeg');
 export const NOMAD = require('../assets/nomad.jpeg');
 export const NIGHT_ICON = require('../assets/night.png');
 export const LOCATE_PIN = require('../assets/locate.png');
