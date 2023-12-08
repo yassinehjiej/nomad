@@ -17,10 +17,10 @@ export const data:DrugStoreDataStructure[] = [
   },
   {
     "id": "1657",
-    "title": "Kalti's msemmen",
+    "title": "Khalti's msemmen",
     "phone": "0522260014",
     "address": "Marché municipale Ifrane",
-    "addressDetails": "Kalti's msemmen",
+    "addressDetails": "Khalti's msemmen",
     "city": "Ifrane",
     "lat": 33.52669073003088, 
     "lng": -5.114641252627494,

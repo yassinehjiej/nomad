@@ -73,7 +73,7 @@ const PharmaDetails = ({ setDesiredDrugStore }: any) => {
         swipeDownPharma(panY);
         if (selectedWords.includes("Culture")) setDesiredDrugStore(data.find((d)=>{return d.title === "Almakane Casablanca"}))
         if (selectedWords.includes("Eco-friendly")) setDesiredDrugStore(data.find((d)=>{return d.title === "Touda Ecolodge Atlas Mountains Morocco"}))
-        if (selectedWords.includes("Local-spot")) setDesiredDrugStore(data.find((d)=>{return d.title === "Kalti's msemmen"}))
+        if (selectedWords.includes("Local-spot")) setDesiredDrugStore(data.find((d)=>{return d.title === "Khalti's msemmen"}))
       }, 1000);
     }
   }, [currentStage]);

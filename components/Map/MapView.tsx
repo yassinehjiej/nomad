@@ -38,7 +38,7 @@ const Map: React.FC = ({ setDesiredDrugStore, desiredDrugStore }: any) => {
   }
   const p = (title: string) => {
     switch (title) {
-      case "Kalti's msemmen":
+      case "Khalti's msemmen":
         return KHALTI;
       case "Almakane Casablanca":
         return ALMAKAN;
