@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
     fontFamily: "montserrat_bold",
     fontSize: 12,
     textAlign: "center",
-    color: "#CC9870",
+    color: "white",
     width: 311,
   },
   dot: {

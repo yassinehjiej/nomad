@@ -1,21 +1,24 @@
+
 import React, { useEffect, useState } from "react";
 import RootNavigator from "./navigation/RootNavigator";
 import FadeInView from "./components/Shared/FadeInView";
 import SplashScreenComponent from "./screens/Splash";
 import { loadFonts } from "./utils/fontLoader";
 import { Provider, useDispatch } from "react-redux";
+import { LogBox } from 'react-native';
+
 import { store } from "./redux/store";
 import { clearAll, retrieveData } from "./utils/storage";
 import OnBoardingScreen from "./screens/OnBoardingScreen";
 import OnBoardingProcessScreen from "./screens/OnBoardingProcessScreen";
 import { QueryClient, QueryClientProvider } from "react-query";
-import { setDesiredDrugStore, setDrugStores } from "./redux/actions";
 
 export default function App() {
   const queryClient = new QueryClient();
   const [appIsReady, setAppIsReady] = useState(false);
   const [rules, setRules] = useState(false);
   const [passedOnboarding, setPassedOnboarding] = useState(false);
+  LogBox.ignoreAllLogs();
 
   clearAll();
   const onAppReady = async () => {
@@ -59,3 +62,5 @@ export default function App() {
     </Provider>
   );
 }
+
+

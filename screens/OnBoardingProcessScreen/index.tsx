@@ -70,7 +70,7 @@ const App: React.FC<any> = ({setRules}) => {
 };
 
 const styles = StyleSheet.create({
-  container: { display: "flex", flex: 1 },
+  container: { display: "flex", flex: 1 , backgroundColor:"#5986AC" },
   logo: {
     display: "flex",
     alignSelf: "center",

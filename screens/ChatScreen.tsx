@@ -24,13 +24,17 @@ interface ChatStage {
 
 export default function ChatScreen({ setDesiredDrugStore }: any) {
   const [selectedResponses, setSelectedResponses] = useState<string[]>([
-    "Hello! How can I help you today?",
+    "Hello Ghali! How can I help you today?",
   ]);
   console.log(selectedResponses[9]);
   const conversation: ChatStage[] = [
     {
-      message: "Hello! How can I help you today?",
-      responses: ["Find a restaurant"],
+      message: "hey ! this is Nomad bot , how can i help you ?",
+      responses: ["i need help regarding my travel"],
+    },
+    {
+      message: "where are you planning to go ? ",
+      responses: ["Ifrane", "Casablanca", "Marrakesh"],
     },
     {
       message: "What would you like to do?",
@@ -52,54 +56,49 @@ export default function ChatScreen({ setDesiredDrugStore }: any) {
       responses: [
         "Culture",
         "Nature",
-        "Cuisine",
         "Adventure",
         "Relaxation",
         "History",
+        "Eco-friendly",
+        "Local-spot",
         "Shopping",
         "Art",
-        "Nightlife",
         "Family-friendly",
         "Romantic",
         "Luxury",
         "Budget-friendly",
-        "Festivals",
       ],
     },
     {
-      message: "I suggest to you theese restaurants",
-      responses: [
-        "Ashokai restaurant",
-        "La cascade restaurant",
-        "Rick's Coffee",
-      ],
+      message: "I suggest to you this place",
+      responses: [selectedResponses.includes('Ifrane') ? "Kalti's msemmen" : selectedResponses.includes('Casablanca') ? "Almakane Casablanca" : "Touda Ecolodge Atlas Mountains Morocco"],
     },
     {
       message: "Here is the details of the restaurant you choose",
       responses: [
         `🍽️ ${
-          selectedResponses[9]
-            ? data.find((d) => d.title === selectedResponses[9])?.title
+          selectedResponses[11]
+            ? data.find((d) => d.title === selectedResponses[11])?.title
             : ""
         }`,
         `📍 ${
-          selectedResponses[9]
-            ? data.find((d) => d.title === selectedResponses[9])?.address
+          selectedResponses[11]
+            ? data.find((d) => d.title === selectedResponses[11])?.address
             : ""
         }`,
 
         `📞 ${
-          selectedResponses[9]
-            ? data.find((d) => d.title === selectedResponses[9])?.phone
+          selectedResponses[11]
+            ? data.find((d) => d.title === selectedResponses[11])?.phone
             : ""
         }`,
         `🛣️ ${
-          selectedResponses[9]
+          selectedResponses[11]
             ? data
-                .find((d) => d.title === selectedResponses[9])
+                .find((d) => d.title === selectedResponses[11])
                 ?.distance?.toFixed(2)
             : ""
-        } m`,
+        } km`,
       ],
     },
   ];
@@ -141,7 +140,7 @@ export default function ChatScreen({ setDesiredDrugStore }: any) {
       >
         {selectedResponses.map((response, index) => {
           return (
-            currentStage < 7 && (
+            currentStage < 8 && (
               <>
                 {index % 2 === 0 && (
                   <View style={{ ...styles.robot, backgroundColor: "white" }} key={response}>
@@ -173,7 +172,7 @@ export default function ChatScreen({ setDesiredDrugStore }: any) {
           );
         })}
 
-        {currentStage < 5 &&
+        {currentStage < 6 &&
           conversation[currentStage].responses.map((response, index) => (
             <TouchableOpacity
               key={response}
@@ -203,7 +202,7 @@ export default function ChatScreen({ setDesiredDrugStore }: any) {
               </Text>
             </TouchableOpacity>
           ))}
-        {currentStage === 5 && (
+        {currentStage === 6 && (
           <View
             style={{
               width: width * 0.8,
@@ -250,15 +249,15 @@ export default function ChatScreen({ setDesiredDrugStore }: any) {
               }}
               onPress={() => {
                 setDesiredDrugStore(
-                  selectedResponses[9]
-                    ? data.find((d) => d.title === selectedResponses[9])
+                  selectedResponses[11]
+                    ? data.find((d) => d.title === selectedResponses[11])
                     : {}
                 );
                 dispatch(swipeAction(DOWN));
-                if (selectedResponses[9])
+                if (selectedResponses[11])
                   dispatch(
                     setDrugStores([
-                      data.find((d) => d.title === selectedResponses[9]),
+                      data.find((d) => d.title === selectedResponses[11]),
                     ] as any)
                   );
               }}

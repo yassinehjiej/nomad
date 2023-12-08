@@ -1,20 +1,22 @@
 import React, { useMemo, useState } from "react";
 import {
+  Image,
   NativeSyntheticEvent,
   SafeAreaView,
+  Text,
   TextInputChangeEventData,
   View,
 } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import { useQuery } from "react-query";
 
-import { DOWN, MARK_ICON, UP, width } from "../constants";
+import { DOWN, MARK_ICON, UP, USER_ICON, width } from "../constants";
 import { drugStoreTypes } from "../data/filters";
 import {
   setDrugStores,
   swipeAction,
   swipeActionPharma,
-  showFilters as sf
+  showFilters as sf,
 } from "../redux/actions";
 import { mapScreenStyles } from "../styles/Screens/MapScreenStyles";
 import MapWithFade from "../components/Map/MapView";
@@ -64,7 +66,7 @@ export default function MapScreen() {
   }
 
   const handleFocus = () => {
-    dispatch(sf(false))
+    dispatch(sf(false));
     dispatch(swipeActionPharma(UP));
   };
 
@@ -74,14 +76,21 @@ export default function MapScreen() {
 
   return (
     <FadeInView style={mapScreenStyles.container}>
-      <MapWithFade setDesiredDrugStore={setDesiredDrugStore} desiredDrugStore={desiredDrugStore} />
-      <SwipeableComponent children={<ChatScreen setDesiredDrugStore={setDesiredDrugStore}/>} />
-      <PharmaDetails setDesiredDrugStore={setDesiredDrugStore}/>
-      <View style={{ flexDirection: "row", justifyContent: "space-around" }}>
+      <MapWithFade
+        setDesiredDrugStore={setDesiredDrugStore}
+        desiredDrugStore={desiredDrugStore}
+      />
+      <SwipeableComponent
+        children={<ChatScreen setDesiredDrugStore={setDesiredDrugStore} />}
+      />
+      <PharmaDetails setDesiredDrugStore={setDesiredDrugStore} />
+      <View style={{ flexDirection: "row", justifyContent: "space-around", alignItems:'center', alignContent:'center' }}>
+       
         {showFilters && (
           <View style={mapScreenStyles.searchPart}>
             <SafeAreaView>
               <SearchInput
+                key={"three"}
                 containerStyle={{ ...mapScreenStyles.searchBarContainer }}
                 inputStyle={{
                   ...mapScreenStyles.seachBarTextInput,
@@ -90,7 +99,6 @@ export default function MapScreen() {
                 iconStyle={mapScreenStyles.searchBarIcon}
                 subject={"Search"}
                 handleFocus={handleFocus}
-                
               />
             </SafeAreaView>
           </View>
@@ -99,6 +107,7 @@ export default function MapScreen() {
           <View style={mapScreenStyles.searchPart}>
             <SafeAreaView>
               <SearchInput
+                key={"two"}
                 containerStyle={{ ...mapScreenStyles.searchBarContainer }}
                 inputStyle={{
                   ...mapScreenStyles.seachBarTextInput,
@@ -106,7 +115,6 @@ export default function MapScreen() {
                 }}
                 iconStyle={mapScreenStyles.searchBarIcon}
                 subject={"AI Help"}
-             
                 handleFocus={handleFocusHelp}
               />
             </SafeAreaView>
