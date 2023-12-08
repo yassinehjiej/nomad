@@ -127,7 +127,7 @@ export default function ChatScreen({ setDesiredDrugStore }: any) {
   };
 
   const reset = () => {
-    setSelectedResponses(["Hello! How can I help you today?"]);
+    setSelectedResponses(["Hello Ghali! How can I help you today?"]);
     setCurrentStage(0);
   };
 

@@ -17,6 +17,7 @@ import { mapStyles } from "../../styles/Map";
 import { FontAwesome5 } from "@expo/vector-icons";
 import {
   ALMAKAN,
+  ASHOKAI,
   DRUG_STORE_PIN,
   ECOLODGE,
   KHALTI,
@@ -40,6 +41,8 @@ const Map: React.FC = ({ setDesiredDrugStore, desiredDrugStore }: any) => {
     switch (title) {
       case "Khalti's msemmen":
         return KHALTI;
+        case "Ashokai Casablanca":
+          return ASHOKAI;
       case "Almakane Casablanca":
         return ALMAKAN;
       case "Touda Ecolodge Atlas Mountains Morocco":
